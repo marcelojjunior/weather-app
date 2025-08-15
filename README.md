@@ -1,97 +1,130 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# WeatherApp
 
-# Getting Started
+> Aplicativo React Native para consulta de previsão do tempo com busca inteligente de cidades
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## 📱 Sobre o Projeto
 
-## Step 1: Start Metro
+O WeatherApp é um aplicativo mobile desenvolvido em React Native que permite aos usuários consultar a previsão do tempo de qualquer cidade do mundo. O app oferece busca inteligente com sugestões em tempo real, informações detalhadas do clima atual e previsão estendida para os próximos 6 dias.
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## ✨ Funcionalidades
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+- 🔍 Busca inteligente de cidades com sugestões automáticas
+- 🌡️ Exibição da temperatura atual em tempo real
+- 🌤️ Condições climáticas detalhadas (ensolarado, nublado, chuva, etc.)
+- ⏰ Data e hora da última atualização dos dados
+- 📅 Previsão do tempo para os próximos 6 dias
+- 💾 Armazenamento local das cidadas pesquidas
+- 🌐 Verificação de conectividade de rede
 
-```sh
-# Using npm
-npm start
+## 🛠️ Tecnologias Utilizadas
 
-# OR using Yarn
-yarn start
+- [React Native](https://reactnative.dev/) - 0.81.0
+- [TypeScript](https://www.typescriptlang.org/)
+- [React Navigation](https://reactnavigation.org/)
+- [Axios](https://axios-http.com/)
+- [Async Storage](https://react-native-async-storage.github.io/async-storage/)
+- [NativeWind](https://www.nativewind.dev/)
+- [Moment.js](https://momentjs.com/)
+- [NetInfo](https://github.com/react-native-netinfo/react-native-netinfo)
+
+## 🌐 API Utilizada
+
+O aplicativo utiliza a [WeatherAPI](https://www.weatherapi.com/) para obter dados meteorológicos:
+- **Endpoint de Busca**: Para sugestões de cidades em tempo real
+- **Endpoint de Clima Atual**: Para dados meteorológicos atuais
+- **Endpoint de Previsão**: Para previsão de 5 dias
+
+## 📋 Pré-requisitos
+
+Antes de começar, certifique-se de ter as seguintes ferramentas instaladas:
+
+- [Node.js](https://nodejs.org/) (versão 18 ou superior)
+- [npm](https://www.npmjs.com/) ou [Yarn](https://yarnpkg.com/)
+- [React Native CLI](https://reactnative.dev/docs/environment-setup)
+- [Android Studio](https://developer.android.com/studio) (para Android)
+- [Xcode](https://developer.apple.com/xcode/) e [CocoaPods](https://cocoapods.org/) (para iOS - apenas macOS)
+- [Ruby](https://www.ruby-lang.org/) e [Bundler](https://bundler.io/) (para gerenciamento do CocoaPods)
+
+## 🚀 Como executar o projeto
+
+### Clonando o repositório
+
+```bash
+git clone https://github.com/marcelojjunior/weather-app.git
+cd weather-app
 ```
 
-## Step 2: Build and run your app
+### Instalando as dependências
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+```bash
+# Usando npm
+npm install
 
-### Android
-
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
+# OU usando Yarn
+yarn
 ```
 
-### iOS
+### Configuração para iOS (apenas macOS)
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+Na primeira vez que clonar o projeto, instale o Ruby bundler:
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
+```bash
 bundle install
 ```
 
-Then, and every time you update your native dependencies, run:
+Em seguida, instale as dependências do CocoaPods:
 
-```sh
+```bash
 bundle exec pod install
 ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+> **Nota**: Execute `bundle exec pod install` sempre que atualizar dependências nativas.
 
-```sh
-# Using npm
+### Configuração da API
+
+1. Registre-se na [WeatherAPI](https://www.weatherapi.com/) para obter uma chave gratuita
+2. Adicionar sua chave no arquivo src/services/api.ts, substituindo YOUR_KEY pelo valor da sua chave::
+
+```env
+const api = axios.create({
+  baseURL: "https://api.weatherapi.com/v1/",
+  timeout: 5000,
+  params: {
+    key: YOUR_KEY,
+  },
+});
+```
+
+### Executando o projeto
+
+```bash
+# Iniciar o Metro Server
+npm start
+# ou
+yarn start
+
+# Para Android (em outro terminal)
+npm run android
+# ou
+yarn android
+
+# Para iOS (apenas macOS, em outro terminal)
 npm run ios
-
-# OR using Yarn
+# ou
 yarn ios
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+## 📱 Screenshots
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+| Clima Atual | Previsão 5 Dias | Busca de Cidade | Recentes | Sem Internet |
+|-------------|------------------|----------------|----------|--------------|
+| ![Atual](./public/screenshots/current.PNG) | ![Previsão](./public/screenshots/forecast.PNG) | ![Busca](./public/screenshots/search.PNG) | ![Recentes](./public/screenshots/recents.PNG) | ![Sem Internet](./public/screenshots/no-internet.PNG) |
 
-## Step 3: Modify your app
+## 👥 Autor
 
-Now that you have successfully run the app, let's make changes!
+- **Marcelo Junior** - [marcelojjunior](https://github.com/marcelojjunior)
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+## 📞 Contato
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+- Email: marcelovfjjunior@gmail.com
+- LinkedIn: [Marcelo Junior](https://www.linkedin.com/in/marcelojjunior/)
