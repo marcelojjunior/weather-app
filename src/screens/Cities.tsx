@@ -14,7 +14,7 @@ import { useNavigation } from '@react-navigation/native';
 import EmptyState from '@/components/EmptyState';
 
 export function CitiesScreen() {
-  const [searchText, setSearchText] = useState('');
+  const [searchText, setSearchText] = useState<string>('');
   const { setSelectedCity, recentCities, clearRecentCities, addRecentCity } = useCity();
   const { data: searchResults, loading, error, searchCities, clearResults } = useCitySearch();
   const { isConnected, isLoading: isNetworkLoading } = useNetworkStatus();
