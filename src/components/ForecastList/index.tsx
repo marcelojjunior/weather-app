@@ -28,10 +28,10 @@ export default function ForecastList({ data }: ForecastListProps) {
         {data.forecast.forecastday.slice(1).map((day) => (
           <View key={day.date} className="flex-row items-center justify-between py-4 border-b border-white/20">
             <View className="flex-1">
-              <Text className="text-white text-base font-poppins-medium">
+              <Text className="text-white text-base font-semibold">
                 {formatDate(day.date)}
               </Text>
-              <Text className="text-white text-sm font-poppins-regular capitalize">
+              <Text className="text-white text-sm font-regular capitalize">
                 {day.day.condition.text}
               </Text>
             </View>
@@ -43,11 +43,11 @@ export default function ForecastList({ data }: ForecastListProps) {
               />
               <View className='flex-row items-center'>
                 <Image source={require('@/assets/icons/up-arrow.png')} className='w-3 h-3 mr-1' />
-                <Text className='text-white text-base font-poppins-regular mr-2'>
+                <Text className='text-white text-base font-medium mr-2'>
                   {Math.round(day.day.maxtemp_c)}°
                 </Text>
                 <Image source={require('@/assets/icons/up-arrow.png')} className='w-3 h-3 mr-1 rotate-180' />
-                <Text className='text-white text-base font-poppins-regular'>
+                <Text className='text-white text-base font-medium'>
                   {Math.round(day.day.mintemp_c)}°
                 </Text>
               </View>

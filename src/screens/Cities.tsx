@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Alert, FlatList, ImageBackground, Keyboard, KeyboardAvoidingView, Platform, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
+import { Alert, FlatList, Image, ImageBackground, Keyboard, KeyboardAvoidingView, Platform, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { City } from '../@types/City';
 import CityListItem from '../components/CityListItem';
@@ -11,6 +11,7 @@ import useNetworkStatus from '../hooks/useNetworkStatus';
 import Header from '../components/Header';
 import NoInternet from '@/components/NoInternet';
 import { useNavigation } from '@react-navigation/native';
+import EmptyState from '@/components/EmptyState';
 
 export function CitiesScreen() {
   const [searchText, setSearchText] = useState('');
@@ -75,18 +76,23 @@ export function CitiesScreen() {
 
             <View className="p-4">
               <View className="flex-row items-center bg-gray-100 rounded-lg px-4 py-3">
-                {/* <Ionicons name="search" size={20} color="#666" /> */}
+                <Image
+                  source={require('@/assets/icons/search.png')}
+                  className='size-5'
+                />
                 <TextInput
-                  className="flex-1 ml-3 text-base font-poppins-regular text-gray-800"
+                  className="flex-1 ml-3 text-base leading-tight font-medium text-gray-800"
                   placeholder="Search for a city..."
                   placeholderTextColor="#999"
                   value={searchText}
                   onChangeText={handleSearchTextChange}
-                // autoFocus
                 />
                 {searchText.length > 0 && (
                   <TouchableOpacity onPress={handleClearSearch}>
-                    {/* <Ionicons name="close-circle" size={20} color="#666" /> */}
+                    <Image
+                      source={require('@/assets/icons/cross.png')}
+                      className='size-5'
+                    />
                   </TouchableOpacity>
                 )}
               </View>
@@ -118,7 +124,6 @@ export function CitiesScreen() {
                       region={item.region}
                       onPress={() => handleCitySelect(item)}
                       showIcon={true}
-                    //   iconName="location-outline"
                     />
                   )}
                   showsVerticalScrollIndicator={false}
@@ -128,12 +133,12 @@ export function CitiesScreen() {
               {searchText.length === 0 && !loading && !error && recentCities.length > 0 && (
                 <View className="flex-1">
                   <View className="flex-row items-center justify-between p-4">
-                    <Text className="text-lg font-poppins-semibold text-white">
+                    <Text className="text-lg font-semibold text-white">
                       Recent Cities
                     </Text>
                     {recentCities.length > 0 && (
                       <TouchableOpacity onPress={handleClearRecentCities}>
-                        <Text className="text-white font-poppins-medium">Clear</Text>
+                        <Text className="text-white font-medium">Clear</Text>
                       </TouchableOpacity>
                     )}
                   </View>
@@ -149,7 +154,6 @@ export function CitiesScreen() {
                           region={item.region}
                           onPress={() => handleCitySelect(item)}
                           showIcon={true}
-                        //   iconName="time-outline"
                         />
                       )}
                       showsVerticalScrollIndicator={false}
@@ -166,14 +170,3 @@ export function CitiesScreen() {
     </ImageBackground>
   );
 }
-
-
-const EmptyState = ({ text }: { text: string }) => {
-  return (
-    <View className="p-4 items-center">
-      <Text className="text-white font-poppins-regular">
-        {text}
-      </Text>
-    </View>
-  );
-};

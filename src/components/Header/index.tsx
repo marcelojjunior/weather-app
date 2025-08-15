@@ -15,11 +15,12 @@ export default function Header({ lastUpdated, variant }: HeaderProps) {
         return (
             <View className="flex-row items-center justify-between px-4">
                 <TouchableOpacity onPress={() => navigation.goBack()}>
-                    <Text className="text-lg font-poppins-semibold text-white">
-                        BAck
-                    </Text>
+                    <Image
+                        source={require('@/assets/icons/back.png')}
+                        className='size-5'
+                    />
                 </TouchableOpacity>
-                <Text className="text-lg font-poppins-semibold text-white">
+                <Text className="text-lg font-semibold text-white">
                     Select a City
                 </Text>
                 <View className='w-6' />
@@ -29,7 +30,7 @@ export default function Header({ lastUpdated, variant }: HeaderProps) {
 
     return (
         <View className='flex items-center justify-between flex-row px-4'>
-            <Text className='text-white text-xl font-poppins-semibold'>
+            <Text className='text-white text-xl font-semibold'>
                 {moment(lastUpdated).format('MMMM D, H:mm')}h
             </Text>
             <TouchableOpacity onPress={() => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { Image, Text, TouchableOpacity, View } from 'react-native';
 
 interface CityListItemProps {
   name: string;
@@ -7,16 +7,14 @@ interface CityListItemProps {
   region?: string;
   onPress: () => void;
   showIcon?: boolean;
-  // iconName?: keyof typeof Ionicons.glyphMap;
 }
 
-export default function CityListItem({ 
-  name, 
-  country, 
-  region, 
-  onPress, 
+export default function CityListItem({
+  name,
+  country,
+  region,
+  onPress,
   showIcon = false,
-  // iconName = 'time-outline'
 }: CityListItemProps) {
   return (
     <TouchableOpacity
@@ -24,19 +22,23 @@ export default function CityListItem({
       onPress={onPress}
     >
       <View className="flex-row items-center flex-1">
-        {/* {showIcon && (
-          <Ionicons name={iconName} size={20} color="#fff" className="mr-3" />
-        )} */}
+          <Image
+            source={require('@/assets/icons/location.png')}
+            className='size-5 mr-3'
+          />
         <View className="flex-1">
-          <Text className="text-base font-poppins-medium text-white">
+          <Text className="text-base font-semibold text-white">
             {name}
           </Text>
-          <Text className="text-sm font-poppins-regular text-white">
+          <Text className="text-sm font-regular text-white">
             {region ? `${region} - ${country}` : country}
           </Text>
         </View>
       </View>
-      {/* <Ionicons name="chevron-forward" size={20} color="#fff" /> */}
+      <Image
+        source={require('@/assets/icons/back.png')}
+        className='size-5 rotate-180'
+      />
     </TouchableOpacity>
   );
 }

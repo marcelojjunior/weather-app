@@ -29,7 +29,7 @@ export function HomeScreen() {
 
                     {loading || error ? (
                         <View className='mt-4 justify-center items-center w-full'>
-                            <Text className='text-white text-lg font-poppins-regular'>
+                            <Text className='text-white text-lg font-regular'>
                                 {loading ? <LoadingSpinner /> : 'Error loading weather data'}
                             </Text>
                         </View>

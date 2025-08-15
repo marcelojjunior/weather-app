@@ -23,14 +23,14 @@ export default function CardConditionsDetails({ title, number, unit, icon }: Car
                 className='size-8'
             />
             <View className='mt-4'>
-                <Text className='text-white text-sm font-poppins-regular'>
+                <Text className='text-white text-sm font-regular'>
                     {title}
                 </Text>
                 <View className='flex-row items-end gap-1'>
-                    <Text className='text-white text-2xl font-poppins-bold'>
+                    <Text className='text-white text-2xl font-bold'>
                         {number}
                     </Text>
-                    <Text className='text-white text-base font-poppins-regular mb-px'>
+                    <Text className='text-white text-base font-regular mb-px'>
                         {unit}
                     </Text>
                 </View>
