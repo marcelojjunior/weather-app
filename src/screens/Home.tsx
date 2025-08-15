@@ -4,13 +4,15 @@ import ForecastList from "@/components/ForecastList";
 import Header from "@/components/Header";
 import LoadingSpinner from "@/components/LoadingSpinner";
 import WeatherCards from "@/components/WeatherCards";
+import { useCity } from "@/contexts/CityContext";
 import useWeather from "@/hooks/useWeather";
 import { getBackgroundImage } from "@/utils/backgroundUtils";
 import { ImageBackground, ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export function HomeScreen() {
-    const { data, loading, error } = useWeather("São Paulo", 7);
+    const { selectedCity } = useCity();
+    const { data, loading, error } = useWeather(selectedCity, 7);
 
     return (
         <ImageBackground
@@ -33,7 +35,7 @@ export function HomeScreen() {
                         </View>
                     ) : (
                         <View className='mt-4 justify-center w-full'>
-                            <CurrentWeather data={data} selectedCity={'Balsas'} />
+                            <CurrentWeather data={data} selectedCity={selectedCity} />
                             <WeatherCards data={data} />
                         </View>
                     )}

@@ -1,3 +1,4 @@
+import { StackActions, useNavigation } from '@react-navigation/native';
 import moment from 'moment';
 import React from 'react';
 import { Image, Text, TouchableOpacity, View } from 'react-native';
@@ -8,11 +9,12 @@ interface HeaderProps {
 }
 
 export default function Header({ lastUpdated, variant }: HeaderProps) {
+    const navigation = useNavigation();
 
     if (variant == "cities") {
         return (
             <View className="flex-row items-center justify-between px-4">
-                <TouchableOpacity onPress={() => { }}>
+                <TouchableOpacity onPress={() => navigation.goBack()}>
                     <Text className="text-lg font-poppins-semibold text-white">
                         BAck
                     </Text>
@@ -30,7 +32,11 @@ export default function Header({ lastUpdated, variant }: HeaderProps) {
             <Text className='text-white text-xl font-poppins-semibold'>
                 {moment(lastUpdated).format('MMMM D, H:mm')}h
             </Text>
-            <TouchableOpacity onPress={() => { }}>
+            <TouchableOpacity onPress={() => {
+                navigation.dispatch(
+                    StackActions.push('Cities'),
+                );
+            }}>
                 <Image
                     source={require('@/assets/icons/menu.png')}
                     className='size-6'
