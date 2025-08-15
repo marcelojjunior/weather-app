@@ -19,7 +19,7 @@ export default function NoInternet({ }: NoInternetProps) {
                 <View className="flex-1 mt-8 items-center px-8">
                     <Image
                       source={require('@/assets/icons/no-wifi.png')}
-                      className='size-5'
+                      className='size-14'
                     />
                     <Text className="text-white text-xl font-semibold text-center mt-4 mb-2">
                         No Internet Connection
