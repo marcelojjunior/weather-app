@@ -34,6 +34,12 @@ The application uses [WeatherAPI](https://www.weatherapi.com/) to obtain meteoro
 - **Current Weather Endpoint**: For current meteorological data
 - **Forecast Endpoint**: For 6-day forecast
 
+## 📱 Screenshots
+
+| Current Weather | 6-Day Forecast | City Search | Recent | No Internet |
+|----------------|----------------|-------------|---------|-------------|
+| ![Current](./public/screenshots/current.PNG) | ![Forecast](./public/screenshots/forecast.PNG) | ![Search](./public/screenshots/search.PNG) | ![Recent](./public/screenshots/recents.PNG) | ![No Internet](./public/screenshots/no-internet.PNG) |
+
 ## 📋 Prerequisites
 
 Before starting, make sure you have the following tools installed:
@@ -113,12 +119,6 @@ npm run ios
 # or
 yarn ios
 ```
-
-## 📱 Screenshots
-
-| Current Weather | 6-Day Forecast | City Search | Recent | No Internet |
-|----------------|----------------|-------------|---------|-------------|
-| ![Current](./public/screenshots/current.PNG) | ![Forecast](./public/screenshots/forecast.PNG) | ![Search](./public/screenshots/search.PNG) | ![Recent](./public/screenshots/recents.PNG) | ![No Internet](./public/screenshots/no-internet.PNG) |
 
 ## 👥 Author
 
