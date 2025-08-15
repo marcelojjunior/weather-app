@@ -1,22 +1,22 @@
 # WeatherApp
 
-> Aplicativo React Native para consulta de previsão do tempo com busca inteligente de cidades
+> React Native application for weather forecasting with intelligent city search
 
-## 📱 Sobre o Projeto
+## 📱 About the Project
 
-O WeatherApp é um aplicativo mobile desenvolvido em React Native que permite aos usuários consultar a previsão do tempo de qualquer cidade do mundo. O app oferece busca inteligente com sugestões em tempo real, informações detalhadas do clima atual e previsão estendida para os próximos 6 dias.
+WeatherApp is a mobile application developed in React Native that allows users to check weather forecasts for any city in the world. The app offers intelligent search with real-time suggestions, detailed current weather information, and extended forecast for the next 6 days.
 
-## ✨ Funcionalidades
+## ✨ Features
 
-- 🔍 Busca inteligente de cidades com sugestões automáticas
-- 🌡️ Exibição da temperatura atual em tempo real
-- 🌤️ Condições climáticas detalhadas (ensolarado, nublado, chuva, etc.)
-- ⏰ Data e hora da última atualização dos dados
-- 📅 Previsão do tempo para os próximos 6 dias
-- 💾 Armazenamento local das cidadas pesquidas
-- 🌐 Verificação de conectividade de rede
+- 🔍 Intelligent city search with automatic suggestions
+- 🌡️ Real-time current temperature display
+- 🌤️ Detailed weather conditions (sunny, cloudy, rain, etc.)
+- ⏰ Date and time of last data update
+- 📅 Weather forecast for the next 6 days
+- 💾 Local storage of searched cities
+- 🌐 Network connectivity verification
 
-## 🛠️ Tecnologias Utilizadas
+## 🛠️ Technologies Used
 
 - [React Native](https://reactnative.dev/) - 0.81.0
 - [TypeScript](https://www.typescriptlang.org/)
@@ -27,65 +27,65 @@ O WeatherApp é um aplicativo mobile desenvolvido em React Native que permite ao
 - [Moment.js](https://momentjs.com/)
 - [NetInfo](https://github.com/react-native-netinfo/react-native-netinfo)
 
-## 🌐 API Utilizada
+## 🌐 API Used
 
-O aplicativo utiliza a [WeatherAPI](https://www.weatherapi.com/) para obter dados meteorológicos:
-- **Endpoint de Busca**: Para sugestões de cidades em tempo real
-- **Endpoint de Clima Atual**: Para dados meteorológicos atuais
-- **Endpoint de Previsão**: Para previsão de 5 dias
+The application uses [WeatherAPI](https://www.weatherapi.com/) to obtain meteorological data:
+- **Search Endpoint**: For real-time city suggestions
+- **Current Weather Endpoint**: For current meteorological data
+- **Forecast Endpoint**: For 6-day forecast
 
-## 📋 Pré-requisitos
+## 📋 Prerequisites
 
-Antes de começar, certifique-se de ter as seguintes ferramentas instaladas:
+Before starting, make sure you have the following tools installed:
 
-- [Node.js](https://nodejs.org/) (versão 18 ou superior)
-- [npm](https://www.npmjs.com/) ou [Yarn](https://yarnpkg.com/)
+- [Node.js](https://nodejs.org/) (version 18 or higher)
+- [npm](https://www.npmjs.com/) or [Yarn](https://yarnpkg.com/)
 - [React Native CLI](https://reactnative.dev/docs/environment-setup)
-- [Android Studio](https://developer.android.com/studio) (para Android)
-- [Xcode](https://developer.apple.com/xcode/) e [CocoaPods](https://cocoapods.org/) (para iOS - apenas macOS)
-- [Ruby](https://www.ruby-lang.org/) e [Bundler](https://bundler.io/) (para gerenciamento do CocoaPods)
+- [Android Studio](https://developer.android.com/studio) (for Android)
+- [Xcode](https://developer.apple.com/xcode/) and [CocoaPods](https://cocoapods.org/) (for iOS - macOS only)
+- [Ruby](https://www.ruby-lang.org/) and [Bundler](https://bundler.io/) (for CocoaPods management)
 
-## 🚀 Como executar o projeto
+## 🚀 How to Run the Project
 
-### Clonando o repositório
+### Cloning the Repository
 
 ```bash
 git clone https://github.com/marcelojjunior/weather-app.git
 cd weather-app
 ```
 
-### Instalando as dependências
+### Installing Dependencies
 
 ```bash
-# Usando npm
+# Using npm
 npm install
 
-# OU usando Yarn
+# OR using Yarn
 yarn
 ```
 
-### Configuração para iOS (apenas macOS)
+### iOS Configuration (macOS only)
 
-Na primeira vez que clonar o projeto, instale o Ruby bundler:
+When cloning the project for the first time, install Ruby bundler:
 
 ```bash
 bundle install
 ```
 
-Em seguida, instale as dependências do CocoaPods:
+Then install CocoaPods dependencies:
 
 ```bash
 bundle exec pod install
 ```
 
-> **Nota**: Execute `bundle exec pod install` sempre que atualizar dependências nativas.
+> **Note**: Run `bundle exec pod install` whenever you update native dependencies.
 
-### Configuração da API
+### API Configuration
 
-1. Registre-se na [WeatherAPI](https://www.weatherapi.com/) para obter uma chave gratuita
-2. Adicionar sua chave no arquivo src/services/api.ts, substituindo YOUR_KEY pelo valor da sua chave::
+1. Sign up at [WeatherAPI](https://www.weatherapi.com/) to get a free key
+2. Add your key in the src/services/api.ts file, replacing YOUR_KEY with your key value:
 
-```env
+```typescript
 const api = axios.create({
   baseURL: "https://api.weatherapi.com/v1/",
   timeout: 5000,
@@ -95,36 +95,40 @@ const api = axios.create({
 });
 ```
 
-### Executando o projeto
+### Running the Project
 
 ```bash
-# Iniciar o Metro Server
+# Start Metro Server
 npm start
-# ou
+# or
 yarn start
 
-# Para Android (em outro terminal)
+# For Android (in another terminal)
 npm run android
-# ou
+# or
 yarn android
 
-# Para iOS (apenas macOS, em outro terminal)
+# For iOS (macOS only, in another terminal)
 npm run ios
-# ou
+# or
 yarn ios
 ```
 
 ## 📱 Screenshots
 
-| Clima Atual | Previsão 5 Dias | Busca de Cidade | Recentes | Sem Internet |
-|-------------|------------------|----------------|----------|--------------|
-| ![Atual](./public/screenshots/current.PNG) | ![Previsão](./public/screenshots/forecast.PNG) | ![Busca](./public/screenshots/search.PNG) | ![Recentes](./public/screenshots/recents.PNG) | ![Sem Internet](./public/screenshots/no-internet.PNG) |
+| Current Weather | 6-Day Forecast | City Search | Recent | No Internet |
+|----------------|----------------|-------------|---------|-------------|
+| ![Current](./public/screenshots/current.PNG) | ![Forecast](./public/screenshots/forecast.PNG) | ![Search](./public/screenshots/search.PNG) | ![Recent](./public/screenshots/recents.PNG) | ![No Internet](./public/screenshots/no-internet.PNG) |
 
-## 👥 Autor
+## 👥 Author
 
 - **Marcelo Junior** - [marcelojjunior](https://github.com/marcelojjunior)
 
-## 📞 Contato
+## 📞 Contact
 
 - Email: marcelovfjjunior@gmail.com
 - LinkedIn: [Marcelo Junior](https://www.linkedin.com/in/marcelojjunior/)
+
+---
+
+⭐ If this project helped you, don't forget to give it a star!
